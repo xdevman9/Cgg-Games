@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ngg bypass :3</title>
-    <style>
-    iframe {
-     position: fixed;
-     top: 0;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     border: none;
-     outline: none;
-     width: 100%;
-     height: 100%;
-    }
-    </style>
+  <title>Loading...</title>
+  <meta name="keywords" content="Blocking websites, blocking proxies" />
+  <meta name="author" content="xdevman1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-<iframe src="/main.html">
+  <script>
+    function aboutblank() {
+      
+      var win = window.open('about:blank'); 
+      var url = 'main.html'; 
+      var iframe = win.document.createElement('iframe'); 
+      iframe.style = "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+      
+      
+      window.location.href = 'https://www.google.com';
+    }
+
+    window.onload = aboutblank;
+  </script>
 </body>
 </html>
