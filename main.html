@@ -23,43 +23,65 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        a {
+        h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .button-container {
             display: inline-block;
             margin: 10px;
-            padding: 10px 20px;
-            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button-container:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 110, 199, 0.4);
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1rem;
             text-transform: uppercase;
             font-weight: bold;
-            color: #ffffff;
-            text-decoration: none;
-            border: 2px solid #ffffff;
-            border-radius: 8px;
-            background: linear-gradient(145deg, #5bc6ff, #256aff);
+        }
+
+        a img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease-in-out;
+            margin-bottom: 10px;
         }
 
         a:hover {
-            background: linear-gradient(145deg, #ff6ec7, #d147b4);
-            transform: scale(1.1) rotate(1deg);
-            box-shadow: 0 10px 25px rgba(255, 110, 199, 0.4);
             color: #fff8dc;
         }
 
-        a:active {
-            transform: scale(0.95) rotate(-1deg);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
 
-            a {
+            h2 {
                 font-size: 1rem;
-                padding: 8px 15px;
+            }
+
+            a img {
+                width: 80px;
+                height: 80px;
+            }
+
+            a {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -68,13 +90,53 @@
     <h1>Pb.gg</h1>
     <h2>More games will be added soon.</h2>
     <br>
-    <a href="/static/embed.html#https://mathsspot.com">roblox</a>
-    <a href="/static/embed.html#https://mathsspot.com/apps/aptoide/5874/aptoide.html">aptoide</a>
-    <a href="/static/embed.html#https://mathsspot.com/apps/tiktok/4478/tiktok.html">tiktok</a>
-    <a href="/static/embed.html#https://mathsspot.com/apps/character-ai/5482/character-ai-chat-ask-create.html">c.ai</a>
-    <a href="/static/embed.html#https://mathsspot.com/apps/proxima-beta/2609/pubg-mobile-resistance.html">pubg</a>
-    <a href="/static/embed.html#https://mathsspot.com/apps/electronic-arts/1353/ea-sports-fc-mobile-24-soccer.html">fc mobile</a>
-    <a href="/static/embed.html#https://mathsspot.com/apps/activision-publishing-inc/7935/call-of-duty.html">call of duty mobile</a>
-    <a href="/static/embed.html#https://mathsspot.com/apps/cognosphere-pte-ltd-/1773/genshin-impact.html">genshin impact</a>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com">
+            <img src="" alt="Roblox">
+            roblox
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com/apps/aptoide/5874/aptoide.html">
+            <img src="" alt="Aptoide">
+            aptoide
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com/apps/tiktok/4478/tiktok.html">
+            <img src="" alt="TikTok">
+            tiktok
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com/apps/character-ai/5482/character-ai-chat-ask-create.html">
+            <img src="" alt="Character AI">
+            c.ai
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com/apps/proxima-beta/2609/pubg-mobile-resistance.html">
+            <img src="" alt="PUBG">
+            pubg
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com/apps/electronic-arts/1353/ea-sports-fc-mobile-24-soccer.html">
+            <img src="" alt="FC Mobile">
+            fc mobile
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com/apps/activision-publishing-inc/7935/call-of-duty.html">
+            <img src="" alt="Call of Duty Mobile">
+            COD
+        </a>
+    </div>
+    <div class="button-container">
+        <a href="/static/embed.html#https://mathsspot.com/apps/cognosphere-pte-ltd-/1773/genshin-impact.html">
+            <img src="" alt="Genshin Impact">
+            genshin impact
+        </a>
+    </div>
 </body>
 </html>
