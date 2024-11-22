@@ -7,9 +7,16 @@ What is nowgg?
 - Auto about:blank
 - Working
 
-
-# Upcoming
-- More games
+# Games
+- Roblox
+- Cod (Call of Duty)
+- Fc Mobile
+- Pubg Mobile
+- C.ai (Character Ai)
+- Tiktok
+- Genshin Impact
+- Aptoide
+     **More Games coming soooooooon.**
 
 
 # Credits
