@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/static/nowgg/',
-    bare:'http://skibidi.cdf/bare/',
+    bare:'https://bare-2wn.pages.dev/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
