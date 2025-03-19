@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pb.gg</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #121212, #1a1a1a);
+      color: #fff;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      height: 90px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 50px;
+    }
+
+    .navbar ul li a {
+      color: #ffffffcc;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a i {
+      margin-right: 8px;
+      font-size: 1.5rem;
+    }
+
+    .navbar ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #00ffc3, #00c3ff);
+      transition: width 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .navbar ul li a:hover {
+      color: #00ffc3;
+    }
+
+    .navbar ul li a:hover::after {
+      width: 100%;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 20px 0;
+    }
+
+    .search-box {
+      width: 60%;
+      max-width: 500px;
+      display: flex;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      background: #2a2a2a;
+      color: #fff;
+      transition: 0.3s ease;
+    }
+
+    .search-box input::placeholder {
+      color: #888;
+    }
+
+    .error-message {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #ff4d4d;
+      display: none;
+    }
+
+    .games-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 50px 20px;
+      gap: 30px;
+    }
+
+    .game-card {
+      background: #1e1e1e;
+      border-radius: 15px;
+      width: 220px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .game-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 15px 40px rgba(0, 255, 204, 0.2);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .game-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .game-card-title {
+      text-align: center;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(90deg, #2a2a2a, #1f1f1f);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        height: 70px;
+      }
+
+      .navbar ul {
+        gap: 20px;
+      }
+
+      .navbar ul li a {
+        font-size: 1rem;
+      }
+
+      .navbar ul li a i {
+        font-size: 1.2rem;
+      }
+
+      .search-box {
+        width: 90%;
+      }
+
+      .games-container {
+        padding: 30px 10px;
+        gap: 20px;
+      }
+
+      .game-card {
+        width: 160px;
+      }
+
+      .game-card img {
+        height: 120px;
+      }
+
+      .game-card-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="games.html"><i class="fas fa-gamepad"></i>Games</a></li>
+      <li><a href="#comingsoon"><i class="fas fa-th"></i>Apps</a></li>
+      <li><a href="proxy.html"><i class="fas fa-shield-alt"></i>Proxy</a></li>
+    </ul>
+  </div>
+
+  <div class="search-container">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search for a game..." onkeyup="searchGames()">
+    </div>
+  </div>
+
+  <div class="error-message" id="errorMessage">
+    Uh oh! The game you were looking for can't be found! 😵
+  </div>
+
+  <div class="games-container" id="gamesContainer">
+    <div class="game-card" data-title="Roblox" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/a/19900/b.html';">
+      <img src="img/roblox.jpg" alt="Roblox">
+      <div class="game-card-title">Roblox</div>
+    </div>
+
+    <div class="game-card" data-title="Aptoide" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/aptoide/5874/aptoide.html';">
+      <img src="img/aptoide.png" alt="Aptoide">
+      <div class="game-card-title">Aptoide</div>
+    </div>
+
+    <div class="game-card" data-title="PUBG" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/proxima-beta/2609/pubg-mobile-resistance.html';">
+      <img src="img/pubgmobile.png" alt="PUBG">
+      <div class="game-card-title">PUBG</div>
+    </div>
+
+    <div class="game-card" data-title="FC Mobile" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/electronic-arts/1353/ea-sports-fc-mobile-24-soccer.html';">
+      <img src="img/fcmobile.jpg" alt="FC Mobile">
+      <div class="game-card-title">FC Mobile</div>
+    </div>
+
+    <div class="game-card" data-title="COD" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/activision-publishing-inc/7935/call-of-duty.html';">
+      <img src="img/cod.png" alt="Call of Duty Mobile">
+      <div class="game-card-title">COD</div>
+    </div>
+
+    <div class="game-card" data-title="Genshin Impact" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/cognosphere-pte-ltd-/1773/genshin-impact.html';">
+      <img src="img/genshin.png" alt="Genshin Impact">
+      <div class="game-card-title">Genshin Impact</div>
+    </div>
+
+    <div class="game-card" data-title="EA Sports UFC" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/electronic-arts/3288/ea-sports-ufc-mobile-2.html';">
+      <img src="img/ufc.jpeg" alt="EA Sports UFC">
+      <div class="game-card-title">EA Sports UFC</div>
+    </div>
+
+    <div class="game-card" data-title="Bloxd.io" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/bloxd/51240/bloxd-io.html';">
+      <img src="img/bloxd.jpeg" alt="Bloxd.io">
+      <div class="game-card-title">Bloxd.io</div>
+    </div>
+
+    <div class="game-card" data-title="Army Tycoon" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/hello-games-team/8688/army-tycoon-idle-base.html';">
+      <img src="img/armytycoon.jpeg" alt="Army Tycoon: Idle Base">
+      <div class="game-card-title">Army Tycoon: Idle Base</div>
+    </div>
+
+    <div class="game-card" data-title="FireBoy and WaterGirl 1" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/agame/51028/fireboy-and-watergirl-1-forest-temple.html';">
+      <img src="img/fbwg.jpeg" alt="FireBoy and WaterGirl 1">
+      <div class="game-card-title">FireBoy and WaterGirl 1</div>
+    </div>
+
+    <div class="game-card" data-title="FireBoy and WaterGirl 2" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/agame/51029/fireboy-and-watergirl-1-light-temple.html';">
+      <img src="img/fbwg2.jpeg" alt="FireBoy and WaterGirl 2">
+      <div class="game-card-title">FireBoy and WaterGirl 2</div>
+    </div>
+
+    <div class="game-card" data-title="Among Us" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/innersloth-llc/4047/among-us.html';">
+      <img src="img/amongus.jpeg" alt="Among Us">
+      <div class="game-card-title">Among Us</div>
+    </div>
+
+    <div class="game-card" data-title="Geometry Dash" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/griffpatch/51387/geometry-dash.html';">
+      <img src="img/geometrydash.png" alt="Geometry Dash">
+      <div class="game-card-title">Geometry Dash</div>
+    </div>
+
+    <div class="game-card" data-title="Bowmasters" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/playgendary-limited/5391/bowmasters.html';">
+      <img src="img/bowmasters.jpeg" alt="Bowmasters">
+      <div class="game-card-title">Bowmasters</div>
+    </div>
+
+    <div class="game-card" data-title="War Robots" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/pixonic/5711/war-robots.html';">
+      <img src="img/warrobots.jpeg" alt="War Robots">
+      <div class="game-card-title">War Robots</div>
+    </div>
+
+    <div class="game-card" data-title="Poppy Platytime" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/mob-games-studio/1293/poppy-playtime.html';">
+      <img src="img/poppyplaytime.jpeg" alt="Poppy Playtime">
+      <div class="game-card-title">Poppy Playtime</div>
+    </div>
+
+    <div class="game-card" data-title="Boxing Hero" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/playtouch/51434/boxing-hero-punch-champions.html';">
+      <img src="img/boxinghero.jpeg" alt="Boxing Hero">
+      <div class="game-card-title">Boxing Hero: Punch champions</div>
+    </div>
+
+    <div class="game-card" data-title="Armedforces.io" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/julgames/51325/armedforces-io.html';">
+      <img src="img/armedforces.jpeg" alt="Armedforces.io">
+      <div class="game-card-title">Armedforces.io</div>
+    </div>
+
+    <div class="game-card" data-title="Shadow Fight 3" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/nekki/8861/shadow-fight-3.html';">
+      <img src="img/shadowfight.jpeg" alt="Shadow Fight 3">
+      <div class="game-card-title">Shadow Fight 3</div>
+    </div>
+
+    <div class="game-card" data-title="Ninja Action" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/gamesfly/51296/ninja-action.html';">
+      <img src="img/ninjaaction.jpg" alt="Ninja Action">
+      <div class="game-card-title">Ninja Action</div>
+    </div>
+
+  </div>
+
+  <script>
+    function searchGames() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.game-card');
+      const error = document.getElementById('errorMessage');
+      let visibleCards = 0;
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'block';
+          visibleCards++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      error.style.display = visibleCards === 0 ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
