@@ -1,142 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Now.GG</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #141e30, #243b55);
-            color: #ffffff;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cgg - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            margin: 20px 0;
-            text-transform: none;
-            letter-spacing: 2px;
-            color: #e3f6f5;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #121212, #1a1a1a);
+      color: #fff;
+    }
 
-        h2 {
-            font-size: 1.5rem;
-            margin: 10px 0;
-            color: #ffffff;
-            opacity: 0.8;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .button-container {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      height: 90px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        .button-container:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(255, 110, 199, 0.4);
-        }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 50px;
+    }
 
-        a {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+    .navbar ul li a {
+      color: #ffffffcc;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: color 0.3s ease;
+    }
 
-        a img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 10px;
-        }
+    .navbar ul li a i {
+      margin-right: 8px;
+      font-size: 1.5rem;
+    }
 
-        a:hover {
-            color: #fff8dc;
-        }
+    .navbar ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #00ffc3, #00c3ff);
+      transition: width 0.3s ease;
+      border-radius: 4px;
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+    .navbar ul li a:hover {
+      color: #00ffc3;
+    }
 
-            h2 {
-                font-size: 1rem;
-            }
+    .navbar ul li a:hover::after {
+      width: 100%;
+    }
 
-            a img {
-                width: 80px;
-                height: 80px;
-            }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      text-align: center;
+      padding: 0 20px;
+      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+    }
 
-            a {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00ffc3, #00c3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ffffffcc;
+      margin-bottom: 40px;
+    }
+
+    .hero a {
+      background: linear-gradient(90deg, #00ffc3, #00c3ff);
+      padding: 15px 40px;
+      border-radius: 50px;
+      color: #121212;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .hero a:hover {
+      background: linear-gradient(90deg, #00c3ff, #00ffc3);
+      transform: scale(1.05);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 30px;
+    }
+
+    .games-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 30px;
+    }
+
+    .game-card {
+      background: #1e1e1e;
+      border-radius: 15px;
+      width: 220px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .game-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 15px 40px rgba(0, 255, 204, 0.2);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .game-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .game-card-title {
+      text-align: center;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(90deg, #2a2a2a, #1f1f1f);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #888;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        height: 70px;
+      }
+
+      .navbar ul {
+        gap: 20px;
+      }
+
+      .navbar ul li a {
+        font-size: 1rem;
+      }
+
+      .navbar ul li a i {
+        font-size: 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .games-container {
+        gap: 20px;
+      }
+
+      .game-card {
+        width: 160px;
+      }
+
+      .game-card img {
+        height: 120px;
+      }
+
+      .game-card-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Pb.gg</h1>
-    <h2>More games will be added soon.</h2>
-    <br>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com">
-            <img src="img/roblox.jpg" alt="Roblox">
-            roblox
-        </a>
+
+
+  <div class="navbar">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="games.html"><i class="fas fa-gamepad"></i>Games</a></li>
+      <li><a href="#comingsoon"><i class="fas fa-th"></i>Apps</a></li>
+      <li><a href="proxy.html"><i class="fas fa-shield-alt"></i>Proxy</a></li>
+    </ul>
+  </div>
+
+ 
+  <section class="hero">
+    <h1>Welcome to Cgg</h1>
+    <p>Play the latest games & apps in your stupid school laptop!</p>
+    <a href="#trending-games">Browse Games/Apps</a>
+  </section>
+
+  
+  <section id="trending-games">
+    <h2 class="section-title">Trending Games/Apps</h2>
+    <div class="games-container">
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com';">
+        <img src="img/roblox.jpg" alt="Roblox">
+        <div class="game-card-title">Roblox</div>
+      </div>
+
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/aptoide/5874/aptoide.html';">
+        <img src="img/aptoide.png" alt="Aptoide">
+        <div class="game-card-title">Aptoide</div>
+      </div>
+
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/tiktok/4478/tiktok.html';">
+        <img src="img/tiktok.png" alt="TikTok">
+        <div class="game-card-title">TikTok</div>
+      </div>
+
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/character-ai/5482/character-ai-chat-ask-create.html';">
+        <img src="img/download.png" alt="Character AI">
+        <div class="game-card-title">C.AI</div>
+      </div>
+
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/proxima-beta/2609/pubg-mobile-resistance.html';">
+        <img src="img/pubgmobile.png" alt="PUBG">
+        <div class="game-card-title">PUBG</div>
+      </div>
+
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/electronic-arts/1353/ea-sports-fc-mobile-24-soccer.html';">
+        <img src="img/fcmobile.jpg" alt="FC Mobile">
+        <div class="game-card-title">FC Mobile</div>
+      </div>
+
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/activision-publishing-inc/7935/call-of-duty.html';">
+        <img src="img/cod.png" alt="Call of Duty Mobile">
+        <div class="game-card-title">COD</div>
+      </div>
+
+      <div class="game-card" onclick="location.href='/static/embed.html#https://mathsspot.com/apps/cognosphere-pte-ltd-/1773/genshin-impact.html';">
+        <img src="img/genshin.png" alt="Genshin Impact">
+        <div class="game-card-title">Genshin Impact</div>
+      </div>
     </div>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com/apps/aptoide/5874/aptoide.html">
-            <img src="img/aptoide.png" alt="Aptoide">
-            aptoide
-        </a>
-    </div>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com/apps/tiktok/4478/tiktok.html">
-            <img src="img/tiktok.png" alt="TikTok">
-            tiktok
-        </a>
-    </div>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com/apps/character-ai/5482/character-ai-chat-ask-create.html">
-            <img src="img/download.png" alt="Character AI">
-            c.ai
-        </a>
-    </div>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com/apps/proxima-beta/2609/pubg-mobile-resistance.html">
-            <img src="img/pubgmobile.png" alt="PUBG">
-            pubg
-        </a>
-    </div>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com/apps/electronic-arts/1353/ea-sports-fc-mobile-24-soccer.html">
-            <img src="img/fcmobile.jpg" alt="FC Mobile">
-            fc mobile
-        </a>
-    </div>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com/apps/activision-publishing-inc/7935/call-of-duty.html">
-            <img src="img/cod.png" alt="Call of Duty Mobile">
-            COD
-        </a>
-    </div>
-    <div class="button-container">
-        <a href="/static/embed.html#https://mathsspot.com/apps/cognosphere-pte-ltd-/1773/genshin-impact.html">
-            <img src="img/genshin.png" alt="Genshin Impact">
-            genshin impact
-        </a>
-    </div>
+  </section>
+
+
 </body>
 </html>
